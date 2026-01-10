@@ -1,0 +1,5 @@
+# ignores data from nminst dataset
+/data
+
+# ignores pycache files
+__pycache__/
