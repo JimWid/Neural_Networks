@@ -1,5 +1,6 @@
 import numpy as np
 
+# Layer Base Class
 class Layer:
 	def __init__(self):
 		self.input = None

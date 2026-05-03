@@ -53,7 +53,7 @@ path = "models/cnn_best.pkl"
 epochs = 25
 lr = 0.01
 
-# Traininig if model doesn't exist
+# Train if model doesn't exist
 if os.path.exists(path):
     network = load(path)
 else:
