@@ -1,17 +1,21 @@
 import numpy as np
+from numpy_nn.layers import Layer
 from scipy import signal
-from layers import Layer
 
 class Convolution(Layer):
     def __init__(self, input_shape, kernel_size, depth):
         input_depth, input_height, input_width = input_shape
         self.depth = depth
+
         self.input_shape = input_shape
         self.input_depth = input_depth
+
         self.output_shape = (depth, input_height - kernel_size + 1, input_width - kernel_size + 1)
         self.kernels_shape = (depth, input_depth, kernel_size, kernel_size)
-        self.kernels = np.random.randn(*self.kernels_shape)
-        self.biases = np.random.randn(*self.output_shape)
+
+        self.fan_in = input_depth * kernel_size * kernel_size
+        self.kernels = np.random.randn(*self.kernels_shape) * np.sqrt(2 / self.fan_in)
+        self.biases = np.zeros(self.output_shape)
 
     def forward(self, input):
         self.input = input

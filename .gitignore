@@ -1,5 +1,4 @@
-# ignores data from nminst dataset
-/data
-
-# ignores pycache files
 __pycache__/
+.venv
+*.pkl
+

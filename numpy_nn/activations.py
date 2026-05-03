@@ -1,6 +1,22 @@
 import numpy as np
-from layers import Layer
+from numpy_nn.layers import Layer
 
+# Tanh Function
+def tanh(x):
+    return np.tanh(x)
+
+def tanh_prime(x):
+    return 1 - np.tanh(x) ** 2
+
+# Sigmoid Function
+def sigmoid(x):
+    return 1 / (1 + np.exp(-x))
+
+def sigmoid_prime(x):
+    s = sigmoid(x)
+    return s * (1 - s)
+
+# Base Activation Class
 class Activation(Layer):
 	def __init__(self, activation, activation_prime):
 		self.activation = activation
@@ -12,27 +28,14 @@ class Activation(Layer):
 		
 	def backward(self, output_gradient, learning_rate):
 		return np.multiply(output_gradient, self.activation_prime(self.input))
-
-# Activation functions!	
+    
+# Activation Classes!	
 class Tanh(Activation): # Hyperbolic Tangent
     def __init__(self):
-        def tanh(x):
-            return np.tanh(x)
-
-        def tanh_prime(x):
-            return 1 - np.tanh(x) ** 2
-
         super().__init__(tanh, tanh_prime)
 
 class Sigmoid(Activation): # Sigmoid Function
     def __init__(self):
-        def sigmoid(x):
-            return 1 / (1 + np.exp(-x))
-
-        def sigmoid_prime(x):
-            s = sigmoid(x)
-            return s * (1 - s)
-
         super().__init__(sigmoid, sigmoid_prime)
 
 class Softmax(Layer): # Softmax Function
