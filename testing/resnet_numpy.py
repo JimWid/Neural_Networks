@@ -9,7 +9,7 @@ from numpy_nn.convolutional import Convolution
 from numpy_nn.activations import ReLU, BatchNormalization, Softmax
 
 from network import test, train, load, save
-from numpy_nn.losses import mse, mse_prime
+from numpy_nn.losses import categorical_cross_entropy, categorical_cross_entropy_prime
 
 from keras.datasets import mnist
 
@@ -58,7 +58,7 @@ lr = 0.01
 if os.path.exists(path):
     network = load(path)
 else:
-    train(network, mse, mse_prime, X_train, y_train, epochs, lr)
+    train(network, categorical_cross_entropy, categorical_cross_entropy_prime, X_train, y_train, epochs, lr)
     save(network, path)
 
 # Testing saved model
