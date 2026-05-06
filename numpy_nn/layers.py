@@ -12,7 +12,7 @@ class Layer:
 	def backward(self, output_gradient, learning_rate):
 		pass
 
-# Different layer types!
+# Dense Layer / Linear Layer (Pytorch) / Fully Connected Layer
 class Dense(Layer):
 	def __init__(self, input_size, output_size):
 		self.weights = np.random.randn(output_size, input_size) * np.sqrt(2. / input_size)
