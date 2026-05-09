@@ -8,6 +8,7 @@ dependencies = [
     "matplotlib",
     "keras",
     "tensorflow",
+    "torch"
 ]
 
 [build-system]

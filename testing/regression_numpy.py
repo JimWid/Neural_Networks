@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from numpy_nn.layers import Dense
 from numpy_nn.losses import mse, mse_prime
-from network import train, predict, save, load
+from network_numpy import train, predict, save, load
 
 # Data: Study hours vs Scores
 hours  = np.array([2.5,5.1,3.2,8.5,3.5,1.5,9.2,5.5,8.3,2.7,

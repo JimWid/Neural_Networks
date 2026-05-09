@@ -7,7 +7,7 @@ from numpy_nn.activations import ReLU
 from numpy_nn.reshape import Reshape
 from numpy_nn.activations import Sigmoid
 from numpy_nn.layers import Dense
-from network import test, train, load, save
+from network_numpy import test, train, load, save
 from numpy_nn.losses import mse, mse_prime
 
 from keras.datasets import mnist
@@ -47,10 +47,11 @@ network = [
     Dense(100, 10),
     Sigmoid()
 ]
+# Note: If you use my ReLU() it will kill neurons! Sigmoid is better for this implementation
 
 # Model Path
 path = "models/cnn_best.pkl"
-epochs = 25
+epochs = 10
 lr = 0.01
 
 # Train if model doesn't exist

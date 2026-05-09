@@ -10,7 +10,7 @@ def predict(network, input):
 
 # Training Function
 def train(network, loss, loss_prime, x_train, y_train, epochs=1000, learning_rate=0.01, verbose=True):
-    for e in range(epochs):
+    for epoch in range(epochs):
         error = 0
         for x, y in zip(x_train, y_train):
 
@@ -28,7 +28,7 @@ def train(network, loss, loss_prime, x_train, y_train, epochs=1000, learning_rat
         error /= len(x_train)
 
         if verbose:
-            print(f"{e + 1}/{epochs}, error={error}")
+            print(f"{epoch + 1}/{epochs}, error={error}")
 
 # Testing Function
 def test(network, x_test, y_test, n=10):

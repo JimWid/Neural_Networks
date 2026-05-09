@@ -8,7 +8,7 @@ from numpy_nn.residual import ResidualBlock
 from numpy_nn.convolutional import Convolution
 from numpy_nn.activations import ReLU, BatchNormalization, Softmax
 
-from network import test, train, load, save
+from network_numpy import test, train, load, save
 from numpy_nn.losses import categorical_cross_entropy, categorical_cross_entropy_prime
 
 from keras.datasets import mnist
