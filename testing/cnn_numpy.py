@@ -3,6 +3,7 @@ os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"
 
 import numpy as np
 from numpy_nn.convolutional import Convolution
+from numpy_nn.maxpooling import MaxPooling
 from numpy_nn.activations import ReLU
 from numpy_nn.reshape import Reshape
 from numpy_nn.activations import Sigmoid
@@ -41,8 +42,9 @@ y_test = one_hot(y_test)
 network = [
     Convolution((1, 28, 28), 3, 5),
     Sigmoid(),
-    Reshape((5, 26, 26), (5 * 26 * 26, 1)),
-    Dense(5 * 26 * 26, 100),
+    MaxPooling(stride=2),
+    Reshape((5, 13, 13), (5 * 13 * 13, 1)),
+    Dense(5 * 13 * 13, 100),
     Sigmoid(),
     Dense(100, 10),
     Sigmoid()
@@ -50,7 +52,7 @@ network = [
 # Note: If you use my ReLU() it will kill neurons! Sigmoid is better for this implementation
 
 # Model Path
-path = "models/cnn_best.pkl"
+path = "models/cnn_numpy_best.pkl"
 epochs = 10
 lr = 0.01
 
