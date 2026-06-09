@@ -36,7 +36,7 @@ These are the models that have been implemented so far:
 ---
 
 ## Numpy Implementation Example
-The numpy implementation usually goes by **implementing the components from scracth**, whether is an new **type of layer, activation function or loss**. Each one of them with their **forward** and **backward** functions.
+The numpy implementation usually goes by **implementing the components from scratch**, whether is an new **type of layer, activation function or loss**. Each one of them with their **forward** and **backward** functions.
 
 ```python
 # RelU Implementation
@@ -66,7 +66,7 @@ network = [
 **This is our model, yay!**
 
 ## Pytorch Implementation Example
-With Pytorch we **skip** the forward and backward implemention at all, since **Pytorch will handle that for us internally**, we usually create a class for the model / network we want and its forward.
+With Pytorch we **skip** the forward and backward implemention at all, since **Pytorch will handle that for us internally**, we usually **create a class for the model/network we want and its forward.**
 
 ```python
 class Convolution(nn.Module):
@@ -101,7 +101,9 @@ class Convolution(nn.Module):
 - ``self.conv`` = ``Convolution()``
 - ``self.linear`` = ``Dense()``
 - ``self.flat`` = ``Reshape()``
-- ``self.activation`` = ``RelU()`` or ``Sigmoid()`` or any activation.
+- ``self.activation`` = ``RelU()`` or ``Sigmoid()`` or any activation
+  
+>  Notice how the ``forward()`` is very similar to the numpy network
 
 We then create a testing file calling this class as our model.
 
